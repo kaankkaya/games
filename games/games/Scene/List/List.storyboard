@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YBd-Qr-olu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,14 +16,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="119" id="fKw-LF-uAJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GameCell" rowHeight="119" id="fKw-LF-uAJ" customClass="GameCell" customModule="games" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="119"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fKw-LF-uAJ" id="zYG-eI-Paw">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Cy-sD-ip7">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3Cy-sD-ip7">
                                             <rect key="frame" x="16" y="9.5" width="100" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="ZwX-DK-mLa"/>
@@ -61,6 +61,11 @@
                                         <constraint firstItem="3Cy-sD-ip7" firstAttribute="leading" secondItem="zYG-eI-Paw" secondAttribute="leading" constant="16" id="w3Y-sC-2Ut"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gameImageView" destination="3Cy-sD-ip7" id="Z8B-ZS-RDe"/>
+                                    <outlet property="genreLabel" destination="k8g-cb-7M7" id="krl-mS-DpQ"/>
+                                    <outlet property="nameLabel" destination="4QG-kb-d2a" id="Tng-3B-kaa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

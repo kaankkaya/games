@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+struct ListResponse: Decodable {
+    let results: [ListItemResponse]
+}
+
+struct ListItemResponse: Decodable {
+    let id: Int
+    let name: String
+    let imageURL: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id,
+             name,
+             imageURL = "background_image"
+    }
+}
