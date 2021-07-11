@@ -8,6 +8,8 @@
 import UIKit
 
 final class ListVC: UITableViewController {
+    private let searchController = UISearchController(searchResultsController: nil)
+    
     var vm: ListVM! {
         didSet {
             vm.delegate = self
@@ -17,9 +19,18 @@ final class ListVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Games"
+        
+        // Search Bar
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
     }
 }
-
+// MARK: - View Model
 extension ListVC: ListVMDelegate {
     
 }
+// MARK: - Search Bar Delegate
+extension ListVC: UISearchBarDelegate {
+    
+}
+
