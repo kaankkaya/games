@@ -10,13 +10,14 @@ import UIKit
 struct GamePresentation {
     let id: Int
     let name:  String
-    let genre: String
     let imageLink: String
+    let genres: [String]
     
     init(model: ListItemResponse) {
         self.id = model.id
         self.name = model.name
-        self.genre = "gelcek"
         self.imageLink = model.imageURL
+//        self.genres = model.genres.map { $0.name }
+        self.genres = [""]
     }
 }

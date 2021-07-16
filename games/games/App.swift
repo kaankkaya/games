@@ -13,6 +13,8 @@ final class App {
     
     let window = UIWindow()
     
+    let service = GameService()
+    
     let router = MainRouter()
     
     func start() {

@@ -8,19 +8,21 @@
 import UIKit
 
 extension URL {
-    func downloadImage(completion: @escaping (UIImage?) -> Void) {
+    func downloadImage(quality: CGFloat, completion: @escaping (UIImage?) -> Void) {
         URLSession.shared.dataTask(with: self) { data, response, error in
             guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let httpURLResponse = response as? HTTPURLResponse,
+                httpURLResponse.statusCode == 200,
                 let data = data,
                 error == nil,
-                let image = UIImage(data: data)
+                let image = UIImage(data: data),
+                let compressedData = image.jpegData(compressionQuality: quality),
+                let compressedImage = UIImage(data: compressedData)
             else {
                 completion(nil)
                 return
             }
-            
-            completion(image)
+            completion(compressedImage)
         }.resume()
     }
 }

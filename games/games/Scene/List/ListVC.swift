@@ -23,6 +23,7 @@ final class ListVC: UITableViewController {
         title = "Games"
         
         // Search Bar
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         
@@ -50,8 +51,25 @@ final class ListVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as! GameCell
-        guard let item = cell.item else { return }
-        vm.requestImage(for: item.id, link: item.imageLink)
+        // Imge request
+        if let item = cell.item {
+            vm.requestImage(for: item.id, link: item.imageLink)
+        }
+        // Pagination
+        if (indexPath.row + 1) % GameService.Constants.count == 0,
+           tableView.numberOfRows(inSection: 0) == indexPath.row + 1  {
+            vm.load(page: ((indexPath.row + 1) / GameService.Constants.count) + 1)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? GameCell else {
+            print("ListVC: Could not find cell for detail!")
+            
+            return
+        }
+        let vc = DetailBuilder.makeWith(cell.item.id, title: cell.item.name)
+        show(vc, sender: nil)
     }
 }
 // MARK: - View Model
@@ -65,13 +83,30 @@ extension ListVC: ListVMDelegate {
     
     func handle(models: [GamePresentation], page: Int) {
         DispatchQueue.main.async { [weak self] in
-            self?.models = models
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+//            if self.vm.query != nil {
+//                models.
+//            }
+            if page != 1 {
+                self.models.append(contentsOf: models)
+                let numberOfRows = self.tableView.numberOfRows(inSection: 0)
+                let indices = (numberOfRows..<numberOfRows + GameService.Constants.count).map {
+                    IndexPath(row: $0, section: 0)
+                }
+                self.tableView.beginUpdates()
+                self.tableView.insertRows(at: indices, with: .fade)
+                self.tableView.endUpdates()
+            } else {
+                self.models = models
+                self.tableView.reloadData()
+            }
         }
     }
 }
 // MARK: - Search Bar Delegate
 extension ListVC: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        vm.query = searchText.isEmpty ? nil : searchText
+    }
 }
 
