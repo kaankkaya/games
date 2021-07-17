@@ -254,17 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				2ABCA036269B44AF00CA8F70 /* GameService.swift */,
-				2ABCA033269B43C800CA8F70 /* Model */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		2ABCA033269B43C800CA8F70 /* Model */ = {
-			isa = PBXGroup;
-			children = (
 				2ABCA034269B43DF00CA8F70 /* Models.swift */,
 			);
-			path = Model;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		2ABCA03C269B61B900CA8F70 /* Extension */ = {

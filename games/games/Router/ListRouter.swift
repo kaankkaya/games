@@ -10,8 +10,7 @@ import UIKit
 final class ListRouter: ChildRouterProtocol {
     let navigationController: UINavigationController = {
         let nav = UINavigationController()
-//        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .featured, tag: 0)
-        nav.tabBarItem = UITabBarItem(title: "Games", image: nil, tag: 0)
+        nav.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         return nav
     }()
