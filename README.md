@@ -9,20 +9,20 @@ I used delegation pattern for my view related components because Its more possib
 
 I also care about readability of my code. Completions make code more hard to read while coding complex Views. But using completion for more background operations (image download) more appropriate because you can call these functions any where you like so you don't need to set a delegate.
 
-● How did you decide to use that design and architectural patterns?
+● How did you decide to use that design and architectural patterns?  
 I like this structure because I can use this in any app Also this architecture allows developers to handle complex Apps.
 
-● What should be the part of this app that needs more time to develop or improve?
+● What should be the part of this app that needs more time to develop or improve?  
 Detail Screen and Favorite storage. I dont like the design of Favorite screens. Using UserDefaults for storing these kind of data iswrong. I used it because it was the easiest way.
 
-● Which part did you like most in this app?
+● Which part did you like most in this app?  
 List screen and pagination 
 
-● Does this app ready to submit to store? If not, what should be done to achieve that?
+● Does this app ready to submit to store? If not, what should be done to achieve that?  
 No. Should implement a DB, use View Controller Delegates to handle navigations, have a test.
 
-● Do you have any comments to us?
+● Do you have any comments to us?  
 Sorry for submitting late.
 
-● What are the things you think are missing or open in this assignment?
+● What are the things you think are missing or open in this assignment?  
 In instructions it says "design we sent you" but I received none.
