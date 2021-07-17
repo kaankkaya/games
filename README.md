@@ -11,13 +11,18 @@ I also care about readability of my code. Completions make code more hard to rea
 
 ● How did you decide to use that design and architectural patterns?
 I like this structure because I can use this in any app Also this architecture allows developers to handle complex Apps.
+
 ● What should be the part of this app that needs more time to develop or improve?
-Detail Screen and Favorite storage. I dont like the design of Favorite screens. Using UserDefaults for storing these kind of data is wrong. I used it because it was the easiest way.
+Detail Screen and Favorite storage. I dont like the design of Favorite screens. Using UserDefaults for storing these kind of data iswrong. I used it because it was the easiest way.
+
 ● Which part did you like most in this app?
 List screen and pagination 
+
 ● Does this app ready to submit to store? If not, what should be done to achieve that?
 No. Should implement a DB, use View Controller Delegates to handle navigations, have a test.
+
 ● Do you have any comments to us?
-Sorry for submitting late...
+Sorry for submitting late.
+
 ● What are the things you think are missing or open in this assignment?
 In instructions it says "design we sent you" but I received none.
