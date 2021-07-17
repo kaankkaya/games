@@ -15,7 +15,7 @@ final class MainRouter {
     
     init() {
         let tabController = UITabBarController()
-        childRouters = [ ListRouter() ]
+        childRouters = [ ListRouter(), FavoriteRouter() ]
         let navControllers = childRouters.map { $0.navigationController }
         tabController.viewControllers = navControllers
         

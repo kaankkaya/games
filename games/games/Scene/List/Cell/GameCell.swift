@@ -17,10 +17,18 @@ final class GameCell: UITableViewCell {
         gameImageView?.image = nil
     }
     
-    var item:  GamePresentation! {
+    var listItem: GamePresentation! {
         didSet {
-            nameLabel.text = item.name
-            genreLabel.text = item.genres.joined(separator: ", ")
+            nameLabel.text = listItem.name
+            genreLabel.text = listItem.genres.joined(separator: ", ")
+        }
+    }
+    
+    var favoriteItem: FavoriteDTO! {
+        didSet {
+            nameLabel.text = favoriteItem.name
+            genreLabel.text = favoriteItem.genres
+            gameImageView.image = UIImage(data: favoriteItem.imageData)
         }
     }
     

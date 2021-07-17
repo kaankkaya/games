@@ -18,22 +18,34 @@ final class DetailVC: UIViewController {
     
     private var descriptionHeight: CGFloat = .zero
     
+    private lazy var favoriteButton: UIBarButtonItem = {
+        let button = UIBarButtonItem(title: "Favorite",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(favoriteTapped))
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         vm.load()
         
         tableView.delegate = self
         tableView.dataSource = self
-        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favoriteTapped))
-        navigationController?.navigationBar.sizeToFit()
-        
         tableView.separatorColor = .clear
+        navigationItem.rightBarButtonItem = favoriteButton
+        
+        updateFavoriteButton()
     }
     
     // MARK: - Helpers
     @objc private func favoriteTapped() {
-        
+        vm.toggleFavorite()
+        updateFavoriteButton()
+    }
+    
+    private func updateFavoriteButton() {
+        favoriteButton.title = vm.isFavorited ? "Unfavorite" : "Favorite"
     }
 }
 

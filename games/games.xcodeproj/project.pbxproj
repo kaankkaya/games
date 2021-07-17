@@ -37,6 +37,11 @@
 		2ACE394C26A229AF00C4781F /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE394B26A229AF00C4781F /* GenreCell.swift */; };
 		2ACE395026A22AE500C4781F /* DescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE394F26A22AE500C4781F /* DescriptionCell.swift */; };
 		2ACE395226A22B2200C4781F /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE395126A22B2200C4781F /* LinkCell.swift */; };
+		2ACE395426A257DB00C4781F /* FavoriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE395326A257DB00C4781F /* FavoriteRouter.swift */; };
+		2ACE395726A2586A00C4781F /* FavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE395626A2586A00C4781F /* FavoriteVC.swift */; };
+		2ACE395926A2587200C4781F /* FavoriteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE395826A2587200C4781F /* FavoriteVM.swift */; };
+		2ACE395B26A2587D00C4781F /* Favorite.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2ACE395A26A2587D00C4781F /* Favorite.storyboard */; };
+		2ACE396126A258B000C4781F /* FavoriteBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE396026A258B000C4781F /* FavoriteBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +98,11 @@
 		2ACE394B26A229AF00C4781F /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		2ACE394F26A22AE500C4781F /* DescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionCell.swift; sourceTree = "<group>"; };
 		2ACE395126A22B2200C4781F /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
+		2ACE395326A257DB00C4781F /* FavoriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRouter.swift; sourceTree = "<group>"; };
+		2ACE395626A2586A00C4781F /* FavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVC.swift; sourceTree = "<group>"; };
+		2ACE395826A2587200C4781F /* FavoriteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVM.swift; sourceTree = "<group>"; };
+		2ACE395A26A2587D00C4781F /* Favorite.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorite.storyboard; sourceTree = "<group>"; };
+		2ACE396026A258B000C4781F /* FavoriteBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				2A396BFE269E2B48008E2598 /* Detail */,
+				2ACE395526A2581200C4781F /* Favorite */,
 				2A1D9BC5269235D400AE3DDC /* List */,
 			);
 			path = Scene;
@@ -215,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				2ABCA023269B2DF400CA8F70 /* ChildRouterProtocol.swift */,
+				2ACE395326A257DB00C4781F /* FavoriteRouter.swift */,
 				2ABCA01F269B2DCF00CA8F70 /* ListRouter.swift */,
 				2ABCA01D269B28D300CA8F70 /* MainRouter.swift */,
 				2ABCA025269B2F4B00CA8F70 /* RouterProtocol.swift */,
@@ -272,6 +284,17 @@
 				2ACE395126A22B2200C4781F /* LinkCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2ACE395526A2581200C4781F /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				2ACE395A26A2587D00C4781F /* Favorite.storyboard */,
+				2ACE396026A258B000C4781F /* FavoriteBuilder.swift */,
+				2ACE395626A2586A00C4781F /* FavoriteVC.swift */,
+				2ACE395826A2587200C4781F /* FavoriteVM.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +402,7 @@
 			files = (
 				2A69E58026922BE200A7838D /* LaunchScreen.storyboard in Resources */,
 				2A69E57D26922BE200A7838D /* Assets.xcassets in Resources */,
+				2ACE395B26A2587D00C4781F /* Favorite.storyboard in Resources */,
 				2A1D9BCE269235D400AE3DDC /* List.storyboard in Resources */,
 				2A396C04269E2C0A008E2598 /* Detail.storyboard in Resources */,
 				2A69E57B26922BE100A7838D /* Main.storyboard in Resources */,
@@ -406,14 +430,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ACE396126A258B000C4781F /* FavoriteBuilder.swift in Sources */,
 				2ABCA02F269B410800CA8F70 /* GamePresentation.swift in Sources */,
 				2A1D9BCF269235D400AE3DDC /* ListVC.swift in Sources */,
 				2ACE394C26A229AF00C4781F /* GenreCell.swift in Sources */,
 				2ABCA024269B2DF400CA8F70 /* ChildRouterProtocol.swift in Sources */,
+				2ACE395726A2586A00C4781F /* FavoriteVC.swift in Sources */,
 				2A1D9BCD269235D400AE3DDC /* ListContracts.swift in Sources */,
 				2A1D9BCC269235D400AE3DDC /* ListVM.swift in Sources */,
 				2A396C02269E2B63008E2598 /* DetailVM.swift in Sources */,
 				2A396C00269E2B5B008E2598 /* DetailVC.swift in Sources */,
+				2ACE395426A257DB00C4781F /* FavoriteRouter.swift in Sources */,
 				2ACE395026A22AE500C4781F /* DescriptionCell.swift in Sources */,
 				2A69E57426922BE100A7838D /* AppDelegate.swift in Sources */,
 				2ABCA03E269B621800CA8F70 /* URL.swift in Sources */,
@@ -424,6 +451,7 @@
 				2A1D9BD226923C1B00AE3DDC /* App.swift in Sources */,
 				2A1D9BCB269235D400AE3DDC /* ListBuilder.swift in Sources */,
 				2ABCA020269B2DCF00CA8F70 /* ListRouter.swift in Sources */,
+				2ACE395926A2587200C4781F /* FavoriteVM.swift in Sources */,
 				2A396C06269E2C85008E2598 /* DetailBuilder.swift in Sources */,
 				2ABCA037269B44AF00CA8F70 /* GameService.swift in Sources */,
 				2ABCA01E269B28D300CA8F70 /* MainRouter.swift in Sources */,

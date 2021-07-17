@@ -36,6 +36,21 @@ struct ListItemGenreResponse: Decodable {
              imageLink = "image_background"
     }
 }
+// Favorite Model
+struct FavoriteDTO: Decodable, Encodable {
+    let id: Int
+    let name: String
+    let genres: String
+    let imageData: Data
+    
+    init(gameDTO: GameDTO, imageData: Data) {
+        self.id = gameDTO.id
+        self.name = gameDTO.name
+        self.genres = gameDTO.genres.map { $0.name }.joined(separator: ", ")
+        self.imageData = imageData
+    }
+}
+
 // Detail Model
 struct GameDTO: Decodable {
     let id: Int

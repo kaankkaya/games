@@ -44,7 +44,7 @@ final class ListVC: UITableViewController {
             fatalError("Table view could not deque the cell check the ID!")
         }
         
-        cell.item = models[indexPath.row]
+        cell.listItem = models[indexPath.row]
         
         return cell
     }
@@ -52,7 +52,7 @@ final class ListVC: UITableViewController {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as! GameCell
         // Imge request
-        if let item = cell.item {
+        if let item = cell.listItem {
             vm.requestImage(for: item.id, link: item.imageLink)
         }
         // Pagination
@@ -68,7 +68,7 @@ final class ListVC: UITableViewController {
             
             return
         }
-        let vc = DetailBuilder.makeWith(cell.item.id, title: cell.item.name)
+        let vc = DetailBuilder.makeWith(cell.listItem.id, title: cell.listItem.name)
         show(vc, sender: nil)
     }
 }
@@ -76,7 +76,7 @@ final class ListVC: UITableViewController {
 extension ListVC: ListVMDelegate {
     func handle(image: UIImage, for id: Int) {
         DispatchQueue.main.async { [weak self] in
-            let cell = self?.tableView.visibleCells.first(where: { ($0 as! GameCell).item.id == id }) as? GameCell
+            let cell = self?.tableView.visibleCells.first(where: { ($0 as! GameCell).listItem.id == id }) as? GameCell
             cell?.setImage(image)
         }
     }

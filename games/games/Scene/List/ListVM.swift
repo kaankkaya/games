@@ -48,8 +48,6 @@ final class ListVM {
                 
                 return
             }
-            
-//            items.forEach { self?.downloadAndCacheImage(for: $0.id, from: $0.imageURL) }
              
             self?.delegate?.handle(models: items.map { .init(model: $0) }, page: page)
         }
