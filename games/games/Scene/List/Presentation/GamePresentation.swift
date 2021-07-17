@@ -13,11 +13,10 @@ struct GamePresentation {
     let imageLink: String
     let genres: [String]
     
-    init(model: ListItemResponse) {
+    init(model: ListDTO) {
         self.id = model.id
         self.name = model.name
         self.imageLink = model.imageURL
-//        self.genres = model.genres.map { $0.name }
-        self.genres = [""]
+        self.genres = model.genres.map { $0.name }
     }
 }

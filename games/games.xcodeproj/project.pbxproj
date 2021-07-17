@@ -29,7 +29,7 @@
 		2ABCA026269B2F4B00CA8F70 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA025269B2F4B00CA8F70 /* RouterProtocol.swift */; };
 		2ABCA02B269B3E2600CA8F70 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA02A269B3E2600CA8F70 /* GameCell.swift */; };
 		2ABCA02F269B410800CA8F70 /* GamePresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA02E269B410800CA8F70 /* GamePresentation.swift */; };
-		2ABCA035269B43DF00CA8F70 /* RequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA034269B43DF00CA8F70 /* RequestDTO.swift */; };
+		2ABCA035269B43DF00CA8F70 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA034269B43DF00CA8F70 /* Models.swift */; };
 		2ABCA037269B44AF00CA8F70 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA036269B44AF00CA8F70 /* GameService.swift */; };
 		2ABCA03E269B621800CA8F70 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCA03D269B621800CA8F70 /* URL.swift */; };
 		2ACE394726A1DC9300C4781F /* DetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACE394626A1DC9300C4781F /* DetailContracts.swift */; };
@@ -90,7 +90,7 @@
 		2ABCA025269B2F4B00CA8F70 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		2ABCA02A269B3E2600CA8F70 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		2ABCA02E269B410800CA8F70 /* GamePresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePresentation.swift; sourceTree = "<group>"; };
-		2ABCA034269B43DF00CA8F70 /* RequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDTO.swift; sourceTree = "<group>"; };
+		2ABCA034269B43DF00CA8F70 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		2ABCA036269B44AF00CA8F70 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		2ABCA03D269B621800CA8F70 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		2ACE394626A1DC9300C4781F /* DetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailContracts.swift; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		2ABCA033269B43C800CA8F70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2ABCA034269B43DF00CA8F70 /* RequestDTO.swift */,
+				2ABCA034269B43DF00CA8F70 /* Models.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -444,7 +444,7 @@
 				2ACE395026A22AE500C4781F /* DescriptionCell.swift in Sources */,
 				2A69E57426922BE100A7838D /* AppDelegate.swift in Sources */,
 				2ABCA03E269B621800CA8F70 /* URL.swift in Sources */,
-				2ABCA035269B43DF00CA8F70 /* RequestDTO.swift in Sources */,
+				2ABCA035269B43DF00CA8F70 /* Models.swift in Sources */,
 				2ACE394926A2289E00C4781F /* UIView.swift in Sources */,
 				2ABCA026269B2F4B00CA8F70 /* RouterProtocol.swift in Sources */,
 				2ACE394726A1DC9300C4781F /* DetailContracts.swift in Sources */,

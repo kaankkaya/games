@@ -14,12 +14,13 @@ final class ListVM {
     
     var query: String? {
         didSet {
-            guard query != nil else {
+            guard let query = query else {
                 killTimer()
                 load()
+                
                 return
             }
-            
+            guard query.count >= 3 else { return }
             setTimer()
         }
     }

@@ -35,14 +35,14 @@ final class FavoriteVC: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         guard (editingStyle == .delete) else { return }
         
-        let id = (tableView.cellForRow(at: indexPath) as! GameCell).favoriteItem.id
+        let cell = (tableView.cellForRow(at: indexPath) as! GameCell)
         
         let alertController = UIAlertController(title: "Remove from favorirtes?",
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
         
         let removeAction = UIAlertAction(title: "Remove", style: .destructive) { [weak self] _ in
-            self?.vm.remove(id: id)
+            self?.vm.remove(id: cell.favoriteItem.id)
             DispatchQueue.main.async { [weak self] in
                 self?.tableView.reloadData()
             }
@@ -51,6 +51,8 @@ final class FavoriteVC: UITableViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         [removeAction, cancelAction].forEach(alertController.addAction)
+        
+        alertController.popoverPresentationController?.sourceView = cell
         
         present(alertController, animated: true)
     }

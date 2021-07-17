@@ -10,7 +10,7 @@ import Foundation
 final class DetailVM {
     weak var delegate: DetailVMDelegate?
     
-    var item: GameDTO?
+    var item: DetailDTO?
     private var imageData: Data?
     
     private let id: Int
@@ -39,25 +39,13 @@ final class DetailVM {
             self.item = model
             self.delegate?.reloadData()
             // Image
-            if let additionalImageURL = URL(string: model.additionalImageLink) {
-                additionalImageURL.downloadImage(quality: 0.5) { [weak self] additionalImage in
-                    if let additionalImage = additionalImage {
-                        self?.imageData = additionalImage.jpegData(compressionQuality: 0.5)
-                        self?.delegate?.handleImage(additionalImage)
-                    } else {
-                        // Set defautlt
-                        if let imageURL = URL(string: model.imageLink) {
-                            imageURL.downloadImage(quality: 0.5) { [weak self] image in
-                                guard let image = image else {
-                                    print("Image could not be downloaded for detail!")
-                                    
-                                    return
-                                }
-                                self?.imageData = image.jpegData(compressionQuality: 0.5)
-                                self?.delegate?.handleImage(image)
-                            }
-                        }
-                    }
+            let imageURLString = model.additionalImageLink ?? model.imageLink
+            
+            if let imageURL = URL(string: imageURLString) {
+                imageURL.downloadImage(quality: 0.5) { [weak self] image in
+                    guard let image = image else { return }
+                    self?.imageData = image.jpegData(compressionQuality: 1)
+                    self?.delegate?.handleImage(image)
                 }
             }
         }

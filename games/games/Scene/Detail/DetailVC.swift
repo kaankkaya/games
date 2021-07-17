@@ -58,20 +58,23 @@ extension DetailVC: DetailVMDelegate {
     
     func handleImage(_ image: UIImage) {
         DispatchQueue.main.async { [weak self] in
-            let container = UIView(frame: CGRect(x: 0, y: 0, width: self!.tableView.frame.width, height: 250))
-            container.backgroundColor = .red
+            let rect = CGRect(x: 0, y: 0, width: self!.tableView.frame.width, height: 250)
+            
+            let imageView = UIImageView(frame: rect)
+            
+            imageView.image = image
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            
+            
+            let container = UIView(frame: rect)
             
             let gradient = CAGradientLayer()
             gradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
             gradient.locations = [0.0, 1.0]
             gradient.frame = container.bounds
             
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self!.tableView.frame.width, height: 250))
-            imageView.image = image
-            imageView.contentMode = .scaleAspectFill
-            
             container.addSubview(imageView)
-            
             container.layer.insertSublayer(gradient, above: imageView.layer)
             
             self?.tableView.tableHeaderView = container
@@ -104,7 +107,8 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
             let attributedString = try? NSAttributedString(data: descriptionData,
                                                               options: [.documentType: NSAttributedString.DocumentType.html],
                                                               documentAttributes: nil)
-            nCell.setText(attributedString?.string ?? "")
+            let trimmedText = attributedString?.string.trimmingCharacters(in: .whitespaces)
+            nCell.setText(trimmedText ?? "No Description")
             descriptionHeight = nCell.getDescriptionHeight()
             cell = nCell
         case LinkCell.index:

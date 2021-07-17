@@ -14,7 +14,7 @@ final class GameService {
         static let key = "ff14887fe1234abab69328953995adda"
     }
     
-    func detailRequest(id: Int, completion: @escaping (GameDTO?) -> Void) {
+    func detailRequest(id: Int, completion: @escaping (DetailDTO?) -> Void) {
         let urlString = "https://api.rawg.io/api/games/\(id)?&key=\(Constants.key)"
         
         guard let url = URL(string: urlString) else {
@@ -39,7 +39,7 @@ final class GameService {
             
             guard
                 let data = data,
-                let model = try? JSONDecoder().decode(GameDTO.self, from: data) else {
+                let model = try? JSONDecoder().decode(DetailDTO.self, from: data) else {
                 print("Response could not decode!")
                 completion(nil)
                 
@@ -50,10 +50,10 @@ final class GameService {
         }.resume()
     }
     
-    func request(query: String?, page: Int = Constants.page, completion: @escaping (([ListItemResponse]?) -> Void)) {
+    func request(query: String?, page: Int = Constants.page, completion: @escaping (([ListDTO]?) -> Void)) {
         let withQuery: Bool = query != nil
         let queryString = withQuery ? "&search=\(query!)" : ""
-        let urlString = "https://api.rawg.io/api/games?page_size=\(Constants.count)&page=\(page)\(queryString)&key=\(Constants.key)"
+        guard let urlString = "https://api.rawg.io/api/games?page_size=\(Constants.count)&page=\(page)\(queryString)&key=\(Constants.key)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
 
         guard let url = URL(string: urlString) else {
             print("URL coul not parse!")

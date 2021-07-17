@@ -15,6 +15,7 @@ final class GameCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         gameImageView?.image = nil
+        backgroundColor = .clear
     }
     
     var listItem: GamePresentation! {

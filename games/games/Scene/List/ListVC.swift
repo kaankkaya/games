@@ -11,6 +11,7 @@ final class ListVC: UITableViewController {
     private let searchController = UISearchController(searchResultsController: nil)
     
     private var models: [GamePresentation] = []
+    private var visitedIds: [Int] = []
     
     var vm: ListVM! {
         didSet {
@@ -44,7 +45,12 @@ final class ListVC: UITableViewController {
             fatalError("Table view could not deque the cell check the ID!")
         }
         
+        
         cell.listItem = models[indexPath.row]
+        
+        if visitedIds.contains(cell.listItem.id) {
+            cell.backgroundColor = .lightGray
+        }
         
         return cell
     }
@@ -68,6 +74,8 @@ final class ListVC: UITableViewController {
             
             return
         }
+        visitedIds.append(cell.listItem.id)
+        cell.backgroundColor = .lightGray
         let vc = DetailBuilder.makeWith(cell.listItem.id, title: cell.listItem.name)
         show(vc, sender: nil)
     }
@@ -84,13 +92,10 @@ extension ListVC: ListVMDelegate {
     func handle(models: [GamePresentation], page: Int) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-//            if self.vm.query != nil {
-//                models.
-//            }
             if page != 1 {
                 self.models.append(contentsOf: models)
                 let numberOfRows = self.tableView.numberOfRows(inSection: 0)
-                let indices = (numberOfRows..<numberOfRows + GameService.Constants.count).map {
+                let indices = (numberOfRows..<numberOfRows + models.count).map {
                     IndexPath(row: $0, section: 0)
                 }
                 self.tableView.beginUpdates()

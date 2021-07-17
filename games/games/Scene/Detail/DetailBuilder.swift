@@ -11,7 +11,7 @@ final class DetailBuilder {
     static func makeWith(_ id: Int, title: String) -> DetailVC {
         let vc = UIStoryboard.init(name: "Detail", bundle: nil).instantiateInitialViewController() as! DetailVC
         vc.title = title
-        
+        vc.hidesBottomBarWhenPushed = true
         vc.vm = DetailVM(id: id)
         
         return vc
